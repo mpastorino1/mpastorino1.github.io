@@ -5,26 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nome Cognome - Developer Portfolio</title>
     <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --text-color: #f0f0f0;
+            --accent-color: #4CAF50;
+            --section-bg: #2a2a2a;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
         header {
-            background: #333;
-            color: #fff;
+            background: var(--section-bg);
             text-align: center;
-            padding: 1rem;
+            padding: 2rem;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--accent-color);
         }
         main {
+            max-width: 800px;
+            margin: 0 auto;
             padding: 2rem;
         }
         section {
+            background: var(--section-bg);
             margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        h1, h2 {
-            color: #333;
+        h2 {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li:before {
+            content: "▹";
+            color: var(--accent-color);
+            margin-right: 0.5rem;
+        }
+        .progetto {
+            margin-bottom: 1rem;
+        }
+        .progetto h3 {
+            color: var(--accent-color);
+        }
+        #contatti a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        #contatti a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -37,16 +83,16 @@
     <main>
         <section id="chi-sono">
             <h2>Chi Sono</h2>
-            <p>Breve descrizione su di te e la tua esperienza come developer.</p>
+            <p>Sono un appassionato web developer con esperienza nella creazione di siti web responsive e user-friendly. Mi piace trasformare idee in realtà digitale.</p>
         </section>
 
         <section id="skills">
             <h2>Skills</h2>
             <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <!-- Aggiungi altre skills -->
+                <li>HTML5 & CSS3</li>
+                <li>JavaScript (ES6+)</li>
+                <li>Responsive Design</li>
+                <li>Git & GitHub</li>
             </ul>
         </section>
 
@@ -54,19 +100,19 @@
             <h2>Progetti</h2>
             <div class="progetto">
                 <h3>Sito Web Pizzaiolo</h3>
-                <p>Descrizione del progetto e tecnologie utilizzate.</p>
+                <p>Un sito web responsive per un pizzaiolo locale, con menu interattivo e sistema di prenotazione online.</p>
             </div>
             <div class="progetto">
                 <h3>Sito Web Ristorante</h3>
-                <p>Descrizione del progetto e tecnologie utilizzate.</p>
+                <p>Piattaforma completa per un ristorante, includendo galleria foto, menu dinamico e integrazione con i social media.</p>
             </div>
         </section>
 
         <section id="contatti">
             <h2>Contatti</h2>
-            <p>Email: tuaemail@example.com</p>
-            <p>LinkedIn: [Il tuo profilo LinkedIn]</p>
-            <p>GitHub: [Il tuo profilo GitHub]</p>
+            <p>Email: <a href="mailto:tuaemail@example.com">tuaemail@example.com</a></p>
+            <p>LinkedIn: <a href="#">Il tuo profilo LinkedIn</a></p>
+            <p>GitHub: <a href="#">Il tuo profilo GitHub</a></p>
         </section>
     </main>
 </body>
