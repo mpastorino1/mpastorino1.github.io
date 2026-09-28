@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void: #0b0b0c;
+  --color-panel: #131316;
+  --color-ink: #f4f1ea;
+  --color-muted: #9a9aa4;
+  --color-spark: #ff5a1f;
+  --color-line: rgba(244, 241, 234, 0.14);
+  --color-line-strong: rgba(244, 241, 234, 0.28);
+
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-void);
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-spark);
+    color: var(--color-void);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-spark);
+    outline-offset: 3px;
+  }
+}
+
+/* Etichette mono stile "segnaposto tecnico" */
+.label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  line-height: 1;
+  color: var(--color-muted);
+}
+
+/* Grana pellicola sull'intera pagina */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Marquee */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-flex;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+  animation: marquee 26s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Punto stato "disponibile" */
+.pulse-dot {
+  position: relative;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #4ade80;
+}
+
+.pulse-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  border: 1px solid #4ade80;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* Griglia tecnica del sandbox "L'officina" */
+.sandbox-grid {
+  background-image:
+    linear-gradient(rgba(244, 241, 234, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 241, 234, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Chip del playground fisico */
+.chip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+  touch-action: none;
+  user-select: none;
+  cursor: grab;
+}
+
+.chip:active {
+  cursor: grabbing;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee-track,
+  .pulse-dot::after {
+    animation: none;
+  }
+}
